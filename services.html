@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Services - Luminous Engineering | Singapore Renovation Experts</title>
+    <meta name="description" content="Explore our comprehensive range of premium home renovation and handyman services. Get instant quotes and book expert services in Singapore.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link href="https://unpkg.com/splitting@1.0.6/dist/splitting.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-gold: #d4af37;
+            --primary-ivory: #f8f6f0;
+            --primary-sage: #9caf88;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glass-nav {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-ivory));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), #b8941f);
+            color: var(--primary-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .service-filter {
+            background: rgba(248, 246, 240, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .service-filter.active {
+            background: var(--primary-gold);
+            color: var(--primary-dark);
+            border-color: var(--primary-gold);
+        }
+        
+        .service-detail-card {
+            background: rgba(248, 246, 240, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .service-detail-card:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .calculator-card {
+            background: rgba(248, 246, 240, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .price-display {
+            background: linear-gradient(135deg, var(--primary-gold), #b8941f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-item:hover .project-overlay {
+            transform: translateY(0);
+        }
+        
+        .before-after-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .before-after-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .before-image, .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .after-image {
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+            transition: clip-path 0.3s ease;
+        }
+        
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-gold);
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+        
+        .slider-handle:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 3px 3px 5px #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="logo font-display">
+                    <a href="index.html">Luminous Engineering</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <a href="services.html" class="nav-link text-yellow-400">Services</a>
+                    <a href="about.html" class="nav-link text-white hover:text-yellow-400">About</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="hidden sm:block text-sm text-gray-300">24/7 Emergency</span>
+                    <button class="btn-primary px-6 py-2 rounded-full text-sm">
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6" data-splitting>
+                    Our <span class="text-gradient">Premium Services</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover our comprehensive range of expert home renovation and handyman services. 
+                    From concept to completion, we deliver excellence in every detail.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Filters -->
+    <section class="py-12 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="service-filter active px-6 py-3 rounded-full font-semibold" data-filter="all">
+                    All Services
+                </button>
+                <button class="service-filter px-6 py-3 rounded-full font-semibold" data-filter="renovation">
+                    Renovation
+                </button>
+                <button class="service-filter px-6 py-3 rounded-full font-semibold" data-filter="maintenance">
+                    Maintenance
+                </button>
+                <button class="service-filter px-6 py-3 rounded-full font-semibold" data-filter="electrical">
+                    Electrical
+                </button>
+                <button class="service-filter px-6 py-3 rounded-full font-semibold" data-filter="painting">
+                    Painting
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quote Calculator -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Instant <span class="text-gradient">Quote Calculator</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Get an instant estimate for your project. Select your service type and requirements 
+                    for a transparent, no-obligation quote.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="calculator-card p-8 rounded-2xl scroll-reveal">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-300 mb-3 font-semibold">Service Type</label>
+                                <select id="serviceType" class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                                    <option value="">Select Service</option>
+                                    <option value="painting" data-base="800">Premium Painting</option>
+                                    <option value="electrical" data-base="150">Electrical Works</option>
+                                    <option value="bathroom" data-base="5000">Bathroom Renovation</option>
+                                    <option value="kitchen" data-base="8000">Kitchen Renovation</option>
+                                    <option value="handyman" data-base="80">Handyman Services</option>
+                                    <option value="complete" data-base="15000">Complete Renovation</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-3 font-semibold">Property Type</label>
+                                <select id="propertyType" class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                                    <option value="1">HDB 3-Room</option>
+                                    <option value="1.2">HDB 4-Room</option>
+                                    <option value="1.5">HDB 5-Room</option>
+                                    <option value="1.3">Condo < 1000 sqft</option>
+                                    <option value="1.8">Condo > 1000 sqft</option>
+                                    <option value="2.5">Landed Property</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-3 font-semibold">Urgency Level</label>
+                                <select id="urgency" class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                                    <option value="1">Standard (2-4 weeks)</option>
+                                    <option value="1.3">Priority (1-2 weeks)</option>
+                                    <option value="1.5">Urgent (Within 1 week)</option>
+                                    <option value="2">Emergency (24-48 hours)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-300 mb-3 font-semibold">Additional Requirements</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="premiumMaterials" class="mr-3 text-yellow-400" value="1.3">
+                                        <span>Premium Materials (+30%)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="weekendWork" class="mr-3 text-yellow-400" value="1.2">
+                                        <span>Weekend Work (+20%)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" id="warranty" class="mr-3 text-yellow-400" value="1.1">
+                                        <span>Extended Warranty (+10%)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col justify-center items-center text-center">
+                            <div class="mb-6">
+                                <div class="text-gray-300 text-lg mb-2">Estimated Price</div>
+                                <div id="priceDisplay" class="price-display">$0</div>
+                                <div class="text-gray-400 text-sm">*Final price may vary based on site inspection</div>
+                            </div>
+                            
+                            <div class="w-full space-y-4">
+                                <button id="bookNowBtn" class="w-full bg-yellow-400 text-black py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                    Book Now
+                                </button>
+                                <button id="getDetailedQuote" class="w-full border-2 border-yellow-400 text-yellow-400 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-colors">
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+                            
+                            <div class="mt-6 text-sm text-gray-400">
+                                <div class="flex items-center justify-center space-x-4">
+                                    <span>✓ No Hidden Fees</span>
+                                    <span>✓ Licensed Experts</span>
+                                    <span>✓ Quality Guarantee</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Service <span class="text-gradient">Details</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive service information to help you make informed decisions.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="service-detail-card p-8 rounded-2xl scroll-reveal">
+                    <h3 class="font-display text-3xl font-bold mb-6 text-yellow-400">Premium Painting Services</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Transform your space with our premium painting services. We use only the highest quality paints and techniques to ensure flawless finishes that last.</p>
+                        
+                        <h4 class="text-xl font-semibold text-white mt-6 mb-3">What's Included:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Surface preparation and cleaning</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Premium paint materials</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Professional application</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Clean-up and protection</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> 2-year warranty</li>
+                        </ul>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-400">2-5</div>
+                                <div class="text-sm text-gray-400">Days Completion</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-400">$3-5</div>
+                                <div class="text-sm text-gray-400">Per Sq Ft</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-detail-card p-8 rounded-2xl scroll-reveal">
+                    <h3 class="font-display text-3xl font-bold mb-6 text-yellow-400">Bathroom Renovation</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Create your personal sanctuary with our comprehensive bathroom renovation services. From design to completion, we handle every detail.</p>
+                        
+                        <h4 class="text-xl font-semibold text-white mt-6 mb-3">Our Process:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">1.</span> Design consultation and planning</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">2.</span> Demolition and disposal</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">3.</span> Plumbing and electrical work</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">4.</span> Tile installation and finishing</li>
+                            <li class="flex items-center"><span class="text-yellow-400 mr-2">5.</span> Fixture installation and testing</li>
+                        </ul>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-400">2-4</div>
+                                <div class="text-sm text-gray-400">Weeks Duration</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-400">5yr</div>
+                                <div class="text-sm text-gray-400">Warranty</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Portfolio -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Recent <span class="text-gradient">Projects</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    See the quality of our work in these recent transformations.
+                </p>
+            </div>
+            
+            <div class="project-gallery">
+                <div class="project-item scroll-reveal">
+                    <img src="resources/bathroom-renovation.jpg" alt="Bathroom Renovation">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Modern Bathroom Transformation</h3>
+                        <p class="text-gray-300 mb-3">Complete renovation with premium fixtures and modern design</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$8,500</span>
+                            <span class="text-gray-400 text-sm">2 weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item scroll-reveal">
+                    <img src="resources/kitchen-renovation.jpg" alt="Kitchen Renovation">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Luxury Kitchen Makeover</h3>
+                        <p class="text-gray-300 mb-3">Custom cabinetry and premium appliances installation</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$12,000</span>
+                            <span class="text-gray-400 text-sm">3 weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item scroll-reveal">
+                    <img src="resources/renovation-before-after.jpg" alt="Complete Home Renovation">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Whole Home Transformation</h3>
+                        <p class="text-gray-300 mb-3">Complete renovation of 4-room HDB flat</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$25,000</span>
+                            <span class="text-gray-400 text-sm">6 weeks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item scroll-reveal">
+                    <img src="resources/service-painting.jpg" alt="Premium Painting">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Premium Painting Project</h3>
+                        <p class="text-gray-300 mb-3">Whole house painting with premium finishes</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$3,200</span>
+                            <a href="painting-services.html" class="text-yellow-400 hover:text-yellow-300 text-sm">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item scroll-reveal">
+                    <img src="resources/service-electrical.jpg" alt="Electrical Works">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Electrical System Upgrade</h3>
+                        <p class="text-gray-300 mb-3">Complete rewiring with smart home integration</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$4,500</span>
+                            <a href="electrical-services.html" class="text-yellow-400 hover:text-yellow-300 text-sm">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-item scroll-reveal">
+                    <img src="resources/team-expert.jpg" alt="Handyman Services">
+                    <div class="project-overlay">
+                        <h3 class="text-xl font-bold text-white mb-2">Home Maintenance Package</h3>
+                        <p class="text-gray-300 mb-3">Comprehensive maintenance and repairs</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-400 font-semibold">$850</span>
+                            <span class="text-gray-400 text-sm">2 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Showcase -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Before & <span class="text-gradient">After</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    See the dramatic transformations we've achieved for our clients.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="before-after-slider scroll-reveal">
+                    <div class="before-after-container">
+                        <img src="resources/renovation-before-after.jpg" alt="Before" class="before-image">
+                        <img src="resources/bathroom-renovation.jpg" alt="After" class="after-image" id="afterImage">
+                        <div class="slider-handle" id="sliderHandle"></div>
+                    </div>
+                    <div class="flex justify-between mt-4 text-sm text-gray-400">
+                        <span>Before</span>
+                        <span>After</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-yellow-400 to-yellow-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-black mb-6">
+                Ready to Start Your Project?
+            </h2>
+            <p class="text-xl text-black mb-8 max-w-2xl mx-auto">
+                Get a detailed quote and timeline for your renovation project. 
+                Our experts are ready to bring your vision to life.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-black text-yellow-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 transition-colors">
+                    Book Consultation
+                </button>
+                <button class="border-2 border-black text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-black hover:text-yellow-400 transition-colors">
+                    Download Portfolio
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="logo font-display text-2xl mb-4">Luminous Engineering</div>
+                <p class="text-gray-400 mb-6">
+                    Premium home renovation and handyman services in Singapore
+                </p>
+                <div class="text-gray-500 text-sm">
+                    © 2024 Luminous Engineering PTE Ltd. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Services Page Specific Functionality
+        class ServicesPage {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupScrollReveal();
+                this.setupServiceFilters();
+                this.setupQuoteCalculator();
+                this.setupBeforeAfterSlider();
+                this.setupProjectGallery();
+                this.setupCTAButtons();
+            }
+
+            setupScrollReveal() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.scroll-reveal').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            setupServiceFilters() {
+                const filters = document.querySelectorAll('.service-filter');
+                
+                filters.forEach(filter => {
+                    filter.addEventListener('click', () => {
+                        // Remove active class from all filters
+                        filters.forEach(f => f.classList.remove('active'));
+                        // Add active class to clicked filter
+                        filter.classList.add('active');
+                        
+                        // Animate filter change
+                        anime({
+                            targets: filter,
+                            scale: [0.95, 1],
+                            duration: 200,
+                            easing: 'easeOutQuad'
+                        });
+                        
+                        // Filter logic would go here
+                        const filterType = filter.dataset.filter;
+                        this.filterProjects(filterType);
+                    });
+                });
+            }
+
+            filterProjects(filterType) {
+                const projects = document.querySelectorAll('.project-item');
+                
+                projects.forEach(project => {
+                    if (filterType === 'all') {
+                        project.style.display = 'block';
+                        anime({
+                            targets: project,
+                            opacity: [0, 1],
+                            scale: [0.8, 1],
+                            duration: 400,
+                            delay: Math.random() * 200,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        // Simple filter logic - in real implementation, 
+                        // you would check data attributes or categories
+                        const shouldShow = Math.random() > 0.3; // Random for demo
+                        
+                        if (shouldShow) {
+                            project.style.display = 'block';
+                            anime({
+                                targets: project,
+                                opacity: [0, 1],
+                                scale: [0.8, 1],
+                                duration: 400,
+                                delay: Math.random() * 200,
+                                easing: 'easeOutQuad'
+                            });
+                        } else {
+                            anime({
+                                targets: project,
+                                opacity: [1, 0],
+                                scale: [1, 0.8],
+                                duration: 300,
+                                easing: 'easeOutQuad',
+                                complete: () => {
+                                    project.style.display = 'none';
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+
+            setupQuoteCalculator() {
+                const serviceType = document.getElementById('serviceType');
+                const propertyType = document.getElementById('propertyType');
+                const urgency = document.getElementById('urgency');
+                const premiumMaterials = document.getElementById('premiumMaterials');
+                const weekendWork = document.getElementById('weekendWork');
+                const warranty = document.getElementById('warranty');
+                const priceDisplay = document.getElementById('priceDisplay');
+                const bookNowBtn = document.getElementById('bookNowBtn');
+                
+                const calculatePrice = () => {
+                    const basePrice = parseInt(serviceType.selectedOptions[0]?.dataset.base || 0);
+                    const propertyMultiplier = parseFloat(propertyType.value || 1);
+                    const urgencyMultiplier = parseFloat(urgency.value || 1);
+                    
+                    let additionalMultiplier = 1;
+                    if (premiumMaterials.checked) additionalMultiplier *= parseFloat(premiumMaterials.value);
+                    if (weekendWork.checked) additionalMultiplier *= parseFloat(weekendWork.value);
+                    if (warranty.checked) additionalMultiplier *= parseFloat(warranty.value);
+                    
+                    const totalPrice = Math.round(basePrice * propertyMultiplier * urgencyMultiplier * additionalMultiplier);
+                    
+                    // Animate price change
+                    anime({
+                        targets: priceDisplay,
+                        innerHTML: [priceDisplay.innerHTML, `$${totalPrice.toLocaleString()}`],
+                        duration: 800,
+                        round: 1,
+                        easing: 'easeOutExpo'
+                    });
+                    
+                    // Enable/disable book now button
+                    bookNowBtn.disabled = basePrice === 0;
+                };
+                
+                // Add event listeners
+                [serviceType, propertyType, urgency].forEach(element => {
+                    element.addEventListener('change', calculatePrice);
+                });
+                
+                [premiumMaterials, weekendWork, warranty].forEach(element => {
+                    element.addEventListener('change', calculatePrice);
+                });
+                
+                // Book now button functionality
+                bookNowBtn.addEventListener('click', () => {
+                    this.showBookingModal();
+                });
+                
+                // Get detailed quote button
+                document.getElementById('getDetailedQuote').addEventListener('click', () => {
+                    window.location.href = 'contact.html';
+                });
+            }
+
+            setupBeforeAfterSlider() {
+                const sliderHandle = document.getElementById('sliderHandle');
+                const afterImage = document.getElementById('afterImage');
+                const container = document.querySelector('.before-after-container');
+                
+                if (!sliderHandle || !afterImage || !container) return;
+                
+                let isDragging = false;
+                
+                const updateSlider = (x) => {
+                    const rect = container.getBoundingClientRect();
+                    const percentage = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+                    
+                    sliderHandle.style.left = percentage + '%';
+                    afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
+                };
+                
+                sliderHandle.addEventListener('mousedown', () => {
+                    isDragging = true;
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (isDragging) {
+                        updateSlider(e.clientX);
+                    }
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                // Touch events for mobile
+                sliderHandle.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('touchmove', (e) => {
+                    if (isDragging) {
+                        updateSlider(e.touches[0].clientX);
+                        e.preventDefault();
+                    }
+                });
+                
+                document.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            }
+
+            setupProjectGallery() {
+                const projectItems = document.querySelectorAll('.project-item');
+                
+                projectItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        // Create modal for project details
+                        this.showProjectModal(item);
+                    });
+                });
+            }
+
+            showProjectModal(projectItem) {
+                const title = projectItem.querySelector('h3').textContent;
+                const description = projectItem.querySelector('p').textContent;
+                const price = projectItem.querySelector('.text-yellow-400').textContent;
+                const timeline = projectItem.querySelector('.text-gray-400').textContent;
+                const imgSrc = projectItem.querySelector('img').src;
+                
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                modal.innerHTML = `
+                    <div class="bg-gray-900 rounded-2xl max-w-4xl w-full max-h-full overflow-y-auto border border-yellow-400">
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-6">
+                                <h3 class="text-3xl font-bold text-yellow-400">${title}</h3>
+                                <button class="text-gray-400 hover:text-white text-2xl" onclick="this.closest('.fixed').remove()">×</button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <img src="${imgSrc}" alt="${title}" class="w-full h-64 object-cover rounded-lg mb-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                            <div class="text-2xl font-bold text-yellow-400">${price}</div>
+                                            <div class="text-sm text-gray-400">Project Cost</div>
+                                        </div>
+                                        <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                            <div class="text-2xl font-bold text-yellow-400">${timeline}</div>
+                                            <div class="text-sm text-gray-400">Duration</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-xl font-semibold text-white mb-4">Project Details</h4>
+                                    <p class="text-gray-300 mb-6">${description}</p>
+                                    
+                                    <h4 class="text-xl font-semibold text-white mb-4">What's Included</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Site assessment and planning</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Premium materials and fixtures</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Professional installation</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Clean-up and disposal</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Quality assurance inspection</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">✓</span> Warranty and support</li>
+                                    </ul>
+                                    
+                                    <div class="mt-8 space-y-4">
+                                        <button class="w-full bg-yellow-400 text-black py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                                            Get Similar Quote
+                                        </button>
+                                        <button class="w-full border-2 border-yellow-400 text-yellow-400 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-colors">
+                                            Book Consultation
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Animate modal appearance
+                anime({
+                    targets: modal,
+                    opacity: [0, 1],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+                
+                anime({
+                    targets: modal.querySelector('.bg-gray-900'),
+                    scale: [0.8, 1],
+                    opacity: [0, 1],
+                    duration: 400,
+                    delay: 100,
+                    easing: 'easeOutBack'
+                });
+                
+                // Close modal on background click
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+            }
+
+            setupCTAButtons() {
+                // Book consultation button
+                document.querySelector('button:contains("Book Consultation")')?.addEventListener('click', () => {
+                    window.location.href = 'contact.html';
+                });
+                
+                // Download portfolio button
+                document.querySelector('button:contains("Download Portfolio")')?.addEventListener('click', () => {
+                    // Simulate download
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.download = 'luminous-portfolio.pdf';
+                    link.click();
+                });
+            }
+
+            showBookingModal() {
+                // Similar to quote modal but for booking
+                alert('Booking functionality - redirect to contact page');
+                window.location.href = 'contact.html';
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ServicesPage();
+        });
+    </script>
+    <!-- WhatsApp Float Button -->
+    <a href="htt

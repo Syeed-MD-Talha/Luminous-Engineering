@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Luminous Engineering | Singapore's Premium Renovation Experts</title>
+    <meta name="description" content="Meet the expert team behind Luminous Engineering. Learn about our 8+ years of experience, certifications, and commitment to premium home renovation services in Singapore.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link href="https://unpkg.com/splitting@1.0.6/dist/splitting.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-gold: #d4af37;
+            --primary-ivory: #f8f6f0;
+            --primary-sage: #9caf88;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glass-nav {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-ivory));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), #b8941f);
+            color: var(--primary-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(212, 175, 55, 0.1)), 
+                        url('resources/hero-bg.jpg') center/cover no-repeat;
+            min-height: 60vh;
+            position: relative;
+        }
+        
+        .team-card {
+            background: rgba(248, 246, 240, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .team-card img {
+            transition: transform 0.4s ease;
+        }
+        
+        .team-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            border: 3px solid var(--primary-dark);
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: rgba(212, 175, 55, 0.3);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .stats-card {
+            background: rgba(248, 246, 240, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-4px);
+        }
+        
+        .certification-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+        
+        .certification-badge:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .value-icon:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(248, 246, 240, 0.03);
+            border-left: 4px solid var(--primary-gold);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 3px 3px 5px #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="logo font-display">
+                    <a href="index.html">Luminous Engineering</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <a href="services.html" class="nav-link text-white hover:text-yellow-400">Services</a>
+                    <a href="about.html" class="nav-link text-yellow-400">About</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="hidden sm:block text-sm text-gray-300">24/7 Emergency</span>
+                    <button class="btn-primary px-6 py-2 rounded-full text-sm">
+                        Get Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="font-display text-5xl lg:text-6xl font-bold mb-6" data-splitting>
+                    About <span class="text-gradient">Luminous Engineering</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    For over 8 years, we've been transforming homes across Singapore with premium craftsmanship, 
+                    innovative solutions, and unwavering commitment to excellence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                        Our <span class="text-gradient">Story</span>
+                    </h2>
+                    <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            Founded in 2015 by a team of experienced craftsmen and designers, Luminous Engineering 
+                            was born from a simple vision: to bring premium home renovation services to Singapore 
+                            homeowners with transparency, reliability, and exceptional quality.
+                        </p>
+                        <p>
+                            What started as a small team of dedicated professionals has grown into Singapore's 
+                            most trusted renovation partner, completing over 500 projects and maintaining a 98% 
+                            customer satisfaction rate. Our commitment to excellence has earned us recognition 
+                            as industry leaders in premium home transformation.
+                        </p>
+                        <p>
+                            Today, we continue to innovate and set new standards in the renovation industry, 
+                            combining traditional craftsmanship with modern technology to deliver results that 
+                            exceed expectations and enhance the value of every home we touch.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="scroll-reveal">
+                    <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="resources/hero-bg.jpg" alt="Luminous Engineering Team" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="stats-card p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-yellow-400 mb-2">500+</div>
+                            <div class="text-gray-400">Projects Completed</div>
+                        </div>
+                        <div class="stats-card p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-yellow-400 mb-2">98%</div>
+                            <div class="text-gray-400">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Our <span class="text-gradient">Values</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    The principles that guide everything we do and define who we are.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center scroll-reveal">
+                    <div class="value-icon">
+                        🏆
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-yellow-400">Excellence</h3>
+                    <p class="text-gray-300">
+                        We strive for perfection in every detail, delivering results that exceed expectations and stand the test of time.
+                    </p>
+                </div>
+                
+                <div class="text-center scroll-reveal">
+                    <div class="value-icon">
+                        🤝
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-yellow-400">Integrity</h3>
+                    <p class="text-gray-300">
+                        Transparent pricing, honest communication, and ethical practices form the foundation of every client relationship.
+                    </p>
+                </div>
+                
+                <div class="text-center scroll-reveal">
+                    <div class="value-icon">
+                        ⏱️
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-yellow-400">Reliability</h3>
+                    <p class="text-gray-300">
+                        We deliver on our promises, meet deadlines, and provide consistent quality you can depend on.
+                    </p>
+                </div>
+                
+                <div class="text-center scroll-reveal">
+                    <div class="value-icon">
+                        💡
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4 text-yellow-400">Innovation</h3>
+                    <p class="text-gray-300">
+                        We embrace new technologies and techniques to provide cutting-edge solutions for modern homes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Team -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Meet Our <span class="text-gradient">Expert Team</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Our team of certified professionals brings decades of combined experience 
+                    to every project, ensuring exceptional results.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="resources/team-expert.jpg" alt="David Chen" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">David Chen</h3>
+                    <p class="text-center text-gray-400 mb-4">Founder & Master Craftsman</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        15+ years in premium home renovation with expertise in structural work and project management.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>HDB Licensed Renovation Contractor</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>BCA Certified Professional</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Project Management Certified</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+                        <span class="text-4xl text-yellow-400">👩‍🔧</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">Sarah Lim</h3>
+                    <p class="text-center text-gray-400 mb-4">Lead Interior Designer</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Award-winning designer specializing in space optimization and modern aesthetic solutions.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Interior Design Degree (Hons)</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>SIDS Accredited Designer</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>10+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+                        <span class="text-4xl text-yellow-400">👨‍⚡</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">Michael Tan</h3>
+                    <p class="text-center text-gray-400 mb-4">Master Electrician</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Licensed electrical expert with 12+ years experience in residential and commercial installations.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>EMA Licensed Electrician</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Smart Home Specialist</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Safety Certified</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+                        <span class="text-4xl text-yellow-400">🎨</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">Lisa Wong</h3>
+                    <p class="text-center text-gray-400 mb-4">Painting Specialist</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Premium painting expert with focus on flawless finishes and color consultation.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Nippon Certified Applicator</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Color Psychology Certified</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>8+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+                        <span class="text-4xl text-yellow-400">🔧</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">Raj Kumar</h3>
+                    <p class="text-center text-gray-400 mb-4">Plumbing Expert</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Licensed plumber specializing in bathroom and kitchen installations with precision craftsmanship.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>PUB Licensed Plumber</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Water Efficiency Expert</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>15+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card p-8 rounded-2xl scroll-reveal">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+                        <span class="text-4xl text-yellow-400">📋</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-2 text-center text-yellow-400">Amanda Lee</h3>
+                    <p class="text-center text-gray-400 mb-4">Project Coordinator</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Detail-oriented coordinator ensuring seamless project execution and client communication.
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>PMP Certified</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>Customer Service Excellence</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="text-yellow-400 mr-2">•</span>
+                            <span>5+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Our <span class="text-gradient">Certifications</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Licensed, certified, and accredited by leading industry bodies in Singapore.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🏛️</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">HDB Licensed</h3>
+                    <p class="text-sm text-gray-300">Approved renovation contractor</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">EMA Licensed</h3>
+                    <p class="text-sm text-gray-300">Electrical contractor license</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🚰</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">PUB Licensed</h3>
+                    <p class="text-sm text-gray-300">Plumbing contractor license</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">BCA Registered</h3>
+                    <p class="text-sm text-gray-300">Building contractor accreditation</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">SIDS Member</h3>
+                    <p class="text-sm text-gray-300">Singapore Interior Design Society</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">ISO 9001</h3>
+                    <p class="text-sm text-gray-300">Quality management certified</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">WorkSafe Certified</h3>
+                    <p class="text-sm text-gray-300">Workplace safety excellence</p>
+                </div>
+                
+                <div class="certification-badge p-6 rounded-xl text-center scroll-reveal">
+                    <div class="text-4xl mb-4">⭐</div>
+                    <h3 class="font-bold text-yellow-400 mb-2">CASE Trust</h3>
+                    <p class="text-sm text-gray-300">Consumer trust accreditation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    Our <span class="text-gradient">Journey</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Key milestones in our growth and success story.
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">Company Founded</h3>
+                            <span class="text-gray-400 text-sm">2015</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Luminous Engineering was established with a mission to provide premium renovation services 
+                            with transparency and reliability at the core.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">First 100 Projects</h3>
+                            <span class="text-gray-400 text-sm">2016</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Completed our first 100 projects with a 100% satisfaction rate, establishing our reputation 
+                            for quality and reliability.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">HDB Licensing</h3>
+                            <span class="text-gray-400 text-sm">2017</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Obtained HDB licensed contractor status, allowing us to work on public housing projects 
+                            across Singapore.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">Team Expansion</h3>
+                            <span class="text-gray-400 text-sm">2019</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Expanded our team to include specialized experts in electrical, plumbing, and design services.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">500+ Projects Milestone</h3>
+                            <span class="text-gray-400 text-sm">2022</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Reached the milestone of 500+ completed projects with an maintained 98% customer satisfaction rate.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item scroll-reveal">
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl text-yellow-400">Industry Recognition</h3>
+                            <span class="text-gray-400 text-sm">2024</span>
+                        </div>
+                        <p class="text-gray-300">
+                            Recognized as one of Singapore's leading renovation companies with multiple industry awards 
+                            and certifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6">
+                    What Clients <span class="text-gradient">Say About Us</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Real feedback from satisfied homeowners who trusted us with their renovation projects.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "Luminous Engineering transformed our entire HDB flat beyond our expectations. The team's 
+                        professionalism, attention to detail, and quality of work were exceptional. Highly recommended!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            JC
+                        </div>
+                        <div>
+                            <div class="font-semibold">Jennifer Chang</div>
+                            <div class="text-gray-400 text-sm">5-Room HDB, Ang Mo Kio</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "The bathroom renovation was completed on time and within budget. The team was clean, 
+                        professional, and the result looks like a 5-star hotel. Couldn't be happier!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            TL
+                        </div>
+                        <div>
+                            <div class="font-semibold">Thomas Lim</div>
+                            <div class="text-gray-400 text-sm">Condo, Orchard</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "From consultation to completion, the process was seamless. The team's expertise and 
+                        transparent pricing made our kitchen renovation stress-free. Thank you!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            KW
+                        </div>
+                        <div>
+                            <div class="font-semibold">Karen Wong</div>
+                            <div class="text-gray-400 text-sm">4-Room HDB, Tampines</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "Professional, punctual, and perfectionists. Our painting project was completed with 
+                        flawless results. The team even helped with color selection."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            RT
+                        </div>
+                        <div>
+                            <div class="font-semibold">Robert Tan</div>
+                            <div class="text-gray-400 text-sm">Landed Property, Bukit Timah</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "The electrical work was done professionally and safely. The team explained everything 
+                        and even provided maintenance tips. Very satisfied with the service."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            MS
+                        </div>
+                        <div>
+                            <div class="font-semibold">Michelle Soon</div>
+                            <div class="text-gray-400 text-sm">3-Room HDB, Bedok</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-2xl scroll-reveal">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "Comprehensive renovation with excellent project management. The team handled everything 
+                        from permits to final inspection. True professionals!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                            PL
+                        </div>
+                        <div>
+                            <div class="font-semibold">Patrick Lee</div>
+                            <div class="text-gray-400 text-sm">Condo, Marine Parade</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mt-4">
+                        ★★★★★
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-yellow-400 to-yellow-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-black mb-6">
+                Ready to Work with Singapore's Best?
+            </h2>
+            <p class="text-xl text-black mb-8 max-w-2xl mx-auto">
+                Join hundreds of satisfied homeowners who trusted us with their renovation projects. 
+                Experience the Luminous Engineering difference today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-black text-yellow-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 transition-colors">
+                    Start Your Project
+                </button>
+                <button class="border-2 border-black text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-black hover:text-yellow-400 transition-colors">
+                    Schedule Consultation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="logo font-display text-2xl mb-4">Luminous Engineering</div>
+                <p class="text-gray-400 mb-6">
+                    Premium home renovation and handyman services in Singapore
+                </p>
+                <div class="text-gray-500 text-sm">
+                    © 2024 Luminous Engineering PTE Ltd. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // About Page Specific Functionality
+        class AboutPage {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupScrollReveal();
+                this.setupTeamCards();
+                this.setupStatsAnimation();
+                this.setupCTAButtons();
+            }
+
+            setupScrollReveal() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.scroll-reveal').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            setupTeamCards() {
+                const teamCards = document.querySelectorAll('.team-card');
+                
+                teamCards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        anime({
+                            targets: card,
+                            scale: 1.02,
+                            rotateY: 5,
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        anime({
+                            targets: card,
+                            scale: 1,
+                            rotateY: 0,
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    });
+                    
+                    // Add click handler for team member details
+                    card.addEventListener('click', () => {
+                        this.showTeamMemberModal(card);
+                    });
+                });
+            }
+
+            showTeamMemberModal(card) {
+                const name = card.querySelector('h3').textContent;
+                const position = card.querySelector('p').textContent;
+                const description = card.querySelector('.text-gray-300').textContent;
+                
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                modal.innerHTML = `
+                    <div class="bg-gray-900 rounded-2xl max-w-2xl w-full border border-yellow-400">
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-6">
+                                <div>
+                                    <h3 class="text-3xl font-bold text-yellow-400 mb-2">${name}</h3>
+                                    <p class="text-xl text-gray-400">${position}</p>
+                                </div>
+                                <button class="text-gray-400 hover:text-white text-2xl" onclick="this.closest('.fixed').remove()">×</button>
+                            </div>
+                            
+                            <p class="text-gray-300 text-lg mb-8">${description}</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-white mb-4">Expertise</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Premium craftsmanship</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Project management</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Quality assurance</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">•</span> Customer service</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-xl font-semibold text-white mb-4">Achievements</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">🏆</span> Excellence Award 2023</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">⭐</span> Top Performer 2022</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">👥</span> Team Leadership</li>
+                                        <li class="flex items-center"><span class="text-yellow-400 mr-2">💯</span> 100% Satisfaction Rate</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 text-center">
+                                <button class="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                                    Schedule Consultation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Animate modal appearance
+                anime({
+                    targets: modal,
+                    opacity: [0, 1],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+                
+                anime({
+                    targets: modal.querySelector('.bg-gray-900'),
+                    scale: [0.8, 1],
+                    opacity: [0, 1],
+                    duration: 400,
+                    delay: 100,
+                    easing: 'easeOutBack'
+                });
+                
+                // Close modal on background click
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+            }
+
+            setupStatsAnimation() {
+                const statsCards = document.querySelectorAll('.stats-card');
+                
+                const observerOptions = {
+                    threshold: 0.5
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const card = entry.target;
+                            
+                            anime({
+                                targets: card,
+                                scale: [0.8, 1],
+                                opacity: [0, 1],
+                                duration: 600,
+                                delay: Math.random() * 200,
+                                easing: 'easeOutBack'
+                            });
+                            
+                            observer.unobserve(card);
+                        }
+                    });
+                }, observerOptions);
+
+                statsCards.forEach(card => {
+                    observer.observe(card);
+                });
+            }
+
+            setupCTAButtons() {
+                // Start Your Project button
+                document.querySelector('button:contains("Start Your Project")')?.addEventListener('click', () => {
+                    window.location.href = 'services.html';
+                });
+                
+                // Schedule Consultation button
+                document.querySelector('button:contains("Schedule Consultation")')?.addEventListener('click', () => {
+                    window.location.href = 'contact.html';
+                });
+                
+                // Schedule Consultation in team modal
+                document.addEventListener('click', (e) => {
+                    if (e.target.textContent === 'Schedule Consultation') {
+                        window.location.href = 'contact.html';
+                    }
+                });
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AboutPage();
+        });
+    </script>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+6596189797" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm6.24 12.79c-.23.66-1.22 1.23-1.9 1.31-.52.07-1.18.23-3.73-.84-2.91-1.35-4.77-4.37-4.91-4.53-.14-.16-1.18-1.42-1.18-2.71s.71-1.68.88-1.91c.17-.23.37-.28.66-.28s.61.02.88.28c.27.26 1.04 1.01 1.04 1.01s.35.37.7.37.61-.35.61-.35.14-.23.28-.61c.14-.38.07-.88-.28-1.23-.35-.35-1.01-1.01-1.01-1.01s-.35-.35-.7-.35-.88.35-1.23.7c-.35.35-1.01 1.01-1.01 1.01s-.35.35-.35.88c0 .53.35 1.23.35 1.23s.35.88.88 1.58c.53.7 1.58 1.75 2.63 2.28 1.05.53 1.93.7 2.28.7.35 0 .88-.35.88-.35s.7-.35 1.23-.35c.53 0 .88.35.88.35s.35.35.35.88c0 .53-.35 1.23-.35 1.23z"/>
+        </svg>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+</html>
