@@ -222,13 +222,32 @@
             font-weight: 700;
             color: var(--primary-gold);
         }
-        
+
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* space between logo and text */
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--primary-gold);
         }
+
+        .logo img {
+            height: 70px;  /* adjust size as needed */
+            width: auto;   /* keeps logo proportional */
+            object-fit: contain;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
         
+        /* .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+         */
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
@@ -472,3 +491,85 @@
                 padding: 1rem !important;
             }
         }
+/* Laptop Responsive Styles */
+        @media (min-width: 769px) and (max-width: 1440px) {
+            .hero-content {
+                padding-top: 60px;
+            }
+
+            h1 {
+                font-size: 3rem !important;
+            }
+
+            .text-xl {
+                font-size: 1.1rem !important;
+            }
+
+            .stats-counter {
+                font-size: 2.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.75rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.95rem !important;
+            }
+
+            .why-choose-card-grid {
+                padding: 1.5rem;
+            }
+
+            .why-choose-card-grid h3 {
+                font-size: 1.25rem !important;
+            }
+
+            section h2 {
+                font-size: 2.5rem !important;
+            }
+
+            .container {
+                max-width: 1200px;
+                padding: 0 2rem;
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+            }
+
+            .hero-bg {
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+
+            .stats-counter {
+                font-size: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
