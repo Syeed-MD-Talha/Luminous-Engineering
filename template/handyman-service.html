@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns# ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <link rel="profile" href="https://gmpg.org/xfn/11 ">
+    
+    <title>Handyman Services Singapore | Luminous Engineering</title>
+    <link rel="icon" type="image/png" href="../resources/logo.png">
+    <meta name="description" content="Reliable handyman services in Singapore. Expert home maintenance, repairs, and installations. Quick response, quality workmanship, guaranteed satisfaction. Available islandwide.">
+    <link rel="canonical" href="https://luminousengineeringsg.com/handyman-services/" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/swimmingpool.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Additional service page styles */
+        .wp-block-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .wp-block-table td {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+        }
+
+        .wp-block-table tr:first-child td {
+            background: rgba(232, 185, 35, 0.1);
+            font-weight: 600;
+            color: #e8b923;
+        }
+
+        .wp-element-caption {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #a0a0a0;
+            font-style: italic;
+        }
+
+        details.wp-block-accordion {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        details.wp-block-accordion:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(232, 185, 35, 0.3);
+        }
+
+        details.wp-block-accordion summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #ffffff;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        details.wp-block-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.wp-block-accordion summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #e8b923;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        details.wp-block-accordion[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .wp-block-accordion__content {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        .wp-block-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .wp-block-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .wp-block-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e8b923;
+            font-weight: 700;
+        }
+
+        .wpforms-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .wpforms-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .wpforms-field-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e8b923;
+            font-weight: 500;
+        }
+
+        .wpforms-field-large,
+        .wpforms-field textarea {
+            width: 100%;
+            padding: 0.875rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .wpforms-field-large:focus,
+        .wpforms-field textarea:focus {
+            outline: none;
+            border-color: #e8b923;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .wpforms-submit-container button {
+            background: linear-gradient(135deg, #e8b923 0%, #d4a017 100%);
+            color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wpforms-submit-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(232, 185, 35, 0.4);
+        }
+
+        /* Laptop Responsive Styles (1024px - 1440px) */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+            .hero-bg {
+                min-height: 70vh !important;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero-content .text-xl {
+                font-size: 1.1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .max-w-7xl {
+                max-width: 1200px !important;
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            .text-5xl {
+                font-size: 2.5rem !important;
+            }
+
+            .text-4xl {
+                font-size: 2rem !important;
+            }
+
+            .text-3xl {
+                font-size: 1.75rem !important;
+            }
+
+            .py-20 {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+
+            .gap-12 {
+                gap: 2rem !important;
+            }
+
+            .mb-20 {
+                margin-bottom: 4rem !important;
+            }
+
+            .mb-12 {
+                margin-bottom: 3rem !important;
+            }
+
+            .space-y-8 > * + * {
+                margin-top: 1.75rem !important;
+            }
+
+            .btn-primary {
+                padding: 0.875rem 1.75rem !important;
+                font-size: 1rem !important;
+            }
+
+            .logo img {
+                height: 40px !important;
+            }
+
+            .logo span {
+                font-size: 1.1rem !important;
+            }
+
+            .grid.md\\:grid-cols-2 {
+                gap: 2rem !important;
+            }
+
+            .grid.md\\:grid-cols-2 img {
+                max-height: 400px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .wp-block-table td {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+
+            .wpforms-container {
+                padding: 1.5rem;
+            }
+
+            details.wp-block-accordion {
+                padding: 1rem;
+            }
+
+            details.wp-block-accordion summary {
+                font-size: 1rem;
+            }
+        }
+
+        /* Small Laptop Styles (1024px - 1280px) */
+        @media (min-width: 1024px) and (max-width: 1280px) {
+            .hero-content h1 {
+                font-size: 2.75rem !important;
+            }
+
+            .text-5xl {
+                font-size: 2.25rem !important;
+            }
+
+            .text-4xl {
+                font-size: 1.875rem !important;
+            }
+
+            .py-20 {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important;
+            }
+        }
+
+        /* Premium pricing presentation */
+        #pricing {
+            position: relative;
+        }
+
+        #pricing::after {
+            content: '';
+            position: absolute;
+            inset: 2rem;
+            border-radius: 32px;
+            background: radial-gradient(circle at top, rgba(248, 213, 126, 0.15), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .pricing-shell {
+            position: relative;
+            background: rgba(12, 17, 40, 0.9);
+            border: 1px solid rgba(255, 215, 128, 0.25);
+            border-radius: 28px;
+            padding: 2.5rem 2rem 2rem;
+            box-shadow: 0 25px 60px rgba(8, 12, 30, 0.65);
+            backdrop-filter: blur(14px);
+            overflow: hidden;
+        }
+
+        .pricing-shell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 214, 129, 0.5), rgba(105, 186, 255, 0.35));
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, #ffd87e, #f0a500);
+            color: #0b1123;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 1.1rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(255, 216, 126, 0.35);
+            z-index: 2;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            color: #f7f7fb;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-table tbody tr:first-child td {
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #fbdca0;
+        }
+
+        .pricing-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background 0.3s ease, transform 0.3s ease;
+            vertical-align: top;
+        }
+
+        .pricing-table tr:not(:first-child):hover td {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(6px);
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table td strong,
+        .pricing-table td:last-child {
+            color: #ffd87e;
+            font-weight: 600;
+        }
+
+        .pricing-note {
+            font-size: 0.9rem;
+            color: #9ca3c4;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-shell {
+                padding: 2rem 1.5rem;
+            }
+
+            .pricing-table td {
+                display: block;
+                width: 100%;
+                border-bottom: none;
+                padding: 0.75rem 0;
+            }
+
+            .pricing-table tr {
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 0.75rem 0;
+            }
+
+            .pricing-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="logo font-display">
+                    <img src="../resources/logo.png" alt="Luminous Engineering Logo">
+                    <span>Luminous Engineering</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8 desktop-nav">
+                    <a href="home.html" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <a href="home.html#services" class="nav-link text-white hover:text-yellow-400">Services</a>
+                    <a href="about.html" class="nav-link text-white hover:text-yellow-400">About</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="hidden sm:block text-sm text-gray-300">24/7 Emergency</span>
+                    <button class="btn-primary px-6 py-2 rounded-full text-sm hidden sm:block">
+                        Get Quote
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="mobile-menu-button" id="mobileMenuButton">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="home.html" class="text-white">Home</a>
+            <a href="home.html#services" class="text-white">Services</a>
+            <a href="about.html" class="text-white">About</a>
+            <a href="contact.html" class="text-white">Contact</a>
+            <a href="#send-us-a-message" class="text-yellow-400 font-semibold">Get Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg">
+        <div class="background-slider">
+            <div class="background-slide" style="background-image: url('../resources/handy-man-service.jpg');"></div>
+            <div class="background-slide" style="background-image: url('../resources/complete-home-service.jpeg');"></div>
+            <div class="background-slide" style="background-image: url('../resources/handy-man-service.jpg');"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-content-inner">
+                <div class="hero-text-box">
+                    <div class="hero-text-content">
+                        <h1 class="hero-title font-display text-gradient">
+                            Professional<br>Handyman Services
+                        </h1>
+                        <p class="hero-description">
+                            Reliable experts for all your home maintenance needs. From minor repairs to installations, furniture assembly to fixtures—we handle it all with quick response times and quality workmanship guaranteed.
+                        </p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#send-us-a-message" class="btn-primary hero-btn">
+                            Get a FREE Quote
+                        </a>
+                        <a href="#pricing" class="btn-primary hero-btn">
+                            View Our Pricing
+                        </a>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main" class="site-main">
+        <div class="entry-content is-layout-constrained">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                
+                <!-- Introduction Section -->
+                <div class="mb-20 text-center max-w-5xl mx-auto">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-8 text-gradient">HANDYMAN SERVICES IN SINGAPORE</h2>
+                    <div class="space-y-4 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            Luminous Engineering provides comprehensive handyman services across Singapore for homeowners, landlords, and businesses. Our skilled handymen are equipped to handle a wide variety of home maintenance, repair, and installation tasks—saving you time, effort, and the hassle of coordinating multiple contractors.
+                        </p>
+                        <p>
+                            Whether you need to fix a leaky faucet, install shelving, mount your TV, assemble furniture, patch walls, or tackle any other household task, our experienced team delivers reliable solutions. We bring the right tools, expertise, and professional approach to every job, no matter how big or small.
+                        </p>
+                        <p>
+                            Our handyman services are perfect for those odd jobs that don't require a specialized contractor but need professional attention. We pride ourselves on punctuality, clear communication, and quality workmanship. Many of our clients use our services regularly for ongoing maintenance of their properties.
+                        </p>
+                        <p>
+                            With Luminous Engineering, you get honest pricing, efficient service, and the peace of mind that comes from working with insured, experienced professionals. We're your one-call solution for keeping your home or office in perfect working order.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 1: General Repairs -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">1. General Home Repairs</h2>
+                        <p class="text-gray-300 mb-4">Our handymen fix common household issues quickly and professionally. From door repairs to window fixes, we handle it all.</p>
+                        <p class="text-gray-300 mb-4">Services include fixing squeaky or sticking doors, repairing damaged window frames and screens, patching holes in walls and ceilings, replacing damaged tiles, fixing loose cabinet handles and hinges, and general carpentry repairs around your home.</p>
+                        <p class="text-gray-300 mb-4">We also help landlords prepare units for handover with quick cosmetic fixes, ensure safety issues are addressed before inspections, and photograph completed work for your records.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>On-the-spot carpentry touch-ups using matching fillers and laminates.</li>
+                            <li>Weatherproofing for windows and balcony doors to keep rainwater out.</li>
+                            <li>Preventive maintenance checklists so recurring faults are tackled early.</li>
+                        </ul>
+                        <p class="text-gray-300">We diagnose problems accurately and provide <strong>lasting solutions</strong> that prevent issues from recurring. Our goal is to keep your home in <strong>excellent condition</strong>.</p>
+                    </div>
+                    <div>
+                        <img src="../resources/handy-man-service.jpg" alt="General Home Repairs" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Service 2: Installations -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <img src="../resources/complete-home-service.jpeg" alt="Installation Services" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">2. Installation Services</h2>
+                        <p class="text-gray-300 mb-4">Professional installation of various fixtures, fittings, and equipment throughout your home or office.</p>
+                        <p class="text-gray-300 mb-4">We install curtain rods and blinds, shelving and storage systems, TV wall mounts and brackets, mirrors and picture frames, door locks and handles, towel bars and bathroom accessories, kitchen and bathroom fixtures, and ceiling fans. Every installation is done with <strong>precision</strong> and <strong>care</strong> to ensure safety and proper function.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Anchors selected for the exact wall type (drywall, concrete, hollow block).</li>
+                            <li>Laser levelling keeps long runs of shelves or rods perfectly straight.</li>
+                            <li>Post-install cleanup so the area is dust-free and ready to use immediately.</li>
+                        </ul>
+                        <p class="text-gray-300">Need multiple fittings installed in one visit? We map out the order of work to minimise noise and disruption to your household.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Furniture Assembly -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">3. Furniture Assembly</h2>
+                        <p class="text-gray-300 mb-4">Skip the frustration of assembling flat-pack furniture. Our handymen expertly assemble all types of furniture quickly and correctly.</p>
+                        <p class="text-gray-300 mb-4">We assemble wardrobes, beds, office desks and chairs, dining tables, bookshelves, TV consoles, outdoor furniture, and children's furniture. We follow manufacturer instructions precisely, ensure all parts are properly secured, and clean up all packaging materials. Your furniture will be <strong>sturdy</strong>, <strong>stable</strong>, and <strong>ready to use</strong>.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Missing screws or dowels? We'll supply equivalents on the spot whenever possible.</li>
+                            <li>Optional anti-tip brackets available for tall cabinets and nursery pieces.</li>
+                            <li>Reconfiguration help for modular furniture when you move or renovate.</li>
+                        </ul>
+                        <p class="text-gray-300">Need disposal for old furniture? Let us know in advance and we can coordinate haul-away services.</p>
+                    </div>
+                    <div>
+                        <img src="../resources/handy-man-service.jpg" alt="Furniture Assembly" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Service 4: Painting & Touch-ups -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <img src="../resources/complete-home-service.jpeg" alt="Painting Services" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">4. Painting & Touch-Up Services</h2>
+                        <p class="text-gray-300 mb-4">Refresh your space with our painting services. We handle single rooms, feature walls, and touch-up work.</p>
+                        <p class="text-gray-300 mb-4">Services include painting individual rooms, creating accent or feature walls, touching up scuffs and marks, filling and painting over holes and cracks, painting doors and window frames, and repainting cabinets and furniture. We use <strong>quality paints</strong>, proper preparation techniques, and clean work practices to deliver <strong>professional results</strong>.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Colour-matching service for older walls so touch-ups blend seamlessly.</li>
+                            <li>Protective coverings for floors, fixtures, and furniture to avoid splatter.</li>
+                            <li>Low-odor paint options ideal for nurseries, clinics, or sensitive occupants.</li>
+                        </ul>
+                        <p class="text-gray-300">We can also coordinate larger repainting projects with our painting division if you decide to extend the scope.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5: Minor Plumbing & Electrical -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">5. Minor Plumbing & Electrical Work</h2>
+                        <p class="text-gray-300 mb-4">Handle small plumbing and electrical tasks safely and efficiently. For major work, we coordinate with licensed specialists.</p>
+                        <p class="text-gray-300 mb-4">Plumbing services include fixing dripping taps, unclogging sinks and drains, replacing washers and seals, installing new taps and showerheads, and connecting washing machines and dishwashers. Electrical services include replacing light bulbs and fixtures, installing switches and sockets (with licensed electrician when required), troubleshooting minor issues, and coordinating major electrical work. We prioritize <strong>safety</strong> and <strong>code compliance</strong> in all work.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Waterproof testing after every plumbing repair to ensure zero seepage.</li>
+                            <li>Voltage and polarity checks for new electrical points before handover.</li>
+                            <li>Direct escalation path to our licensed plumbing/electrical teams for complex cases.</li>
+                        </ul>
+                        <p class="text-gray-300">This hybrid service keeps smaller issues from escalating while giving you direct access to specialists when the scope expands.</p>
+                    </div>
+                    <div>
+                        <img src="../resources/handy-man-service.jpg" alt="Plumbing Electrical" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <section id="pricing" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient">Pricing</h2>
+                    <p class="text-xl text-gray-300 text-center mb-12">Our pricing is <strong>transparent</strong> and <strong>fair</strong>. We charge by the hour or provide fixed quotes for specific jobs.</p>
+                    
+                    <div class="overflow-x-auto mb-8">
+                        <div class="pricing-shell">
+                            <div class="pricing-badge">Door Care</div>
+                            <table class="wp-block-table pricing-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td><strong>Handyman Services (All prices incl. of labour &amp; transport)</strong></td>
+                                        <td><strong>Estimated Price</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><strong>Door Repair Price</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Door lock / handle replacement</td>
+                                        <td>Enquire for Price</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Cabinet hinge replacement (1 pair)</td>
+                                        <td>From $100 (From $20 per additional unit)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Cupboard hydraulic hinge replacement (1 pair)</td>
+                                        <td>From $120 (From $50 per additional unit)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="pricing-note">Door repair pricing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <div class="pricing-shell">
+                            <div class="pricing-badge">Install Pros</div>
+                            <table class="wp-block-table pricing-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td><strong>Handyman Services (All prices incl. of labour &amp; transport)</strong></td>
+                                        <td><strong>Estimated Price</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><strong>Drilling &amp; Installation Services</strong></td>
+                                    </tr>
+                                    <tr><td>1</td><td>Hang pictures / artwork</td><td>From $70 (From $30 per additional unit)</td></tr>
+                                    <tr><td>2</td><td>Hang mirror</td><td>From $70 (From $30 per additional unit)</td></tr>
+                                    <tr><td>3</td><td>Bathroom accessories installation</td><td>From $70 (From $30 per additional unit)</td></tr>
+                                    <tr><td>4</td><td>Pull-up bar installation</td><td>From $95 (From $75 per additional unit)</td></tr>
+                                    <tr><td>5</td><td>Installing curtain rods</td><td>From $100 (From $30 per additional unit)</td></tr>
+                                    <tr><td>6</td><td>Installing curtain blinds / track</td><td>From $100 (From $20 per additional unit)</td></tr>
+                                    <tr><td>7</td><td>Wall-mounted shelves</td><td>From $70 (From $30 per additional unit)</td></tr>
+                                    <tr><td>8</td><td>Punching bag installation</td><td>From $120 (From $90 per additional unit)</td></tr>
+                                    <tr><td>9</td><td>HDB laundry rack</td><td>From $150</td></tr>
+                                    <tr><td>10</td><td>TV bracket installation</td><td>From $120 (From $90 per additional unit)</td></tr>
+                                    <tr><td>11</td><td>Rubbish chute installation</td><td>From $235</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="pricing-note">Drilling and installation pricing</p>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="fa-qs" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6 text-center text-gradient">FAQs</h2>
+                    <p class="text-xl text-gray-300 text-center mb-12">Frequently Asked Questions about Handyman Services</p>
+                    
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        <details class="wp-block-accordion">
+                            <summary>What's the minimum service time?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Our minimum service time is 2 hours for most handyman jobs. This covers travel time, tool setup, and ensures we can complete your task properly. For larger projects, we can provide accurate time estimates and fixed quotes during our initial consultation.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Do you provide the tools and materials?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, our handymen come fully equipped with common tools needed for most jobs. For specific materials like fixtures, tiles, paint, or hardware, we can either purchase them on your behalf (with prior approval) or you can provide them. We'll advise you in advance about any materials needed.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>How quickly can you come?</summary>
+                            <div class="wp-block-accordion__content">
+                                <ul class="wp-block-list">
+                                    <li>Same-day service available for urgent repairs</li>
+                                    <li>Next-day service for most standard requests</li>
+                                    <li>Scheduled appointments for specific dates and times</li>
+                                    <li>Emergency service available 24/7 (premium rates apply)</li>
+                                    <li>We'll confirm availability when you contact us</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>What areas do you cover?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>We provide handyman services islandwide across Singapore including all HDB estates, condominiums, landed properties, and commercial premises. Some remote areas may incur additional travel charges, which we'll inform you about upfront.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Are your handymen insured and trained?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, all our handymen are experienced professionals covered by our company insurance. They undergo regular training and are skilled in various trades. For specialized work requiring licenses (like major electrical work), we coordinate with certified professionals.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Can you handle multiple tasks in one visit?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Absolutely! This is one of the main benefits of our handyman service. You can create a list of tasks, and we'll work through them efficiently during our visit. This saves you time and money compared to scheduling multiple specialist contractors for different small jobs.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>What if I'm not satisfied with the work?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Your satisfaction is our priority. If you're not happy with any work, inform us immediately and we'll rectify the issue at no extra charge. We stand behind our workmanship and want every customer to be completely satisfied with our service.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Do you offer regular maintenance packages?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, we offer monthly or quarterly maintenance packages for homeowners, landlords, and businesses who need regular upkeep. These packages provide priority scheduling, discounted rates, and proactive maintenance to prevent costly repairs. Contact us for custom package details.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Contact Form Section -->
+                <section id="send-us-a-message" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient">Send Us a Message</h2>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="wpforms-container">
+                            <form id="wpforms-form-787" class="wpforms-validate wpforms-form" method="post" enctype="multipart/form-data">
+                                <div class="wpforms-field-container">
+                                    <div class="wpforms-field wpforms-field-name">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_6">First Name *</label>
+                                        <input type="text" id="wpforms-787-field_6" class="wpforms-field-large" name="wpforms[fields][6]" placeholder="First Name *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-name">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_11">Last Name *</label>
+                                        <input type="text" id="wpforms-787-field_11" class="wpforms-field-large" name="wpforms[fields][11]" placeholder="Last Name *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-email">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_1">Email *</label>
+                                        <input type="email" id="wpforms-787-field_1" class="wpforms-field-large" name="wpforms[fields][1]" placeholder="Email Address *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-text">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_2">Phone Number *</label>
+                                        <input type="tel" id="wpforms-787-field_2" class="wpforms-field-large" name="wpforms[fields][2]" placeholder="Phone Number *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-textarea">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_3">Message *</label>
+                                        <textarea id="wpforms-787-field_3" class="wpforms-field-large" name="wpforms[fields][3]" rows="6" placeholder="Describe the handyman tasks you need help with..." required></textarea>
+                                    </div>
+                                    <div class="wpforms-submit-container">
+                                        <button type="submit" name="wpforms[submit]" class="wpforms-submit" value="wpforms-submit">
+                                            Submit Request
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer -->
+
+<footer class="bg-gradient-to-b from-gray-900 to-black text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+                <div class="font-display text-3xl font-bold text-yellow-400 mb-3">Luminous Engineering</div>
+                <p class="text-gray-300 max-w-md">
+                    Singapore's premier home-renovation & handyman specialist.
+                </p>
+            </div>
+            <div class="md:text-right">
+                <div class="text-sm uppercase tracking-wider text-gray-400 mb-2">Stay Updated</div>
+                <form class="flex max-w-sm md:ml-auto">
+                    <input type="email" placeholder="your@email.com" required
+                           class="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-yellow-400">
+                    <button type="submit"
+                            class="px-5 py-2 bg-yellow-400 text-black font-semibold rounded-r-lg hover:bg-yellow-300 transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-sm">
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Services</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Premium Painting</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Electrical Works</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Bathroom Renovation</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Kitchen Renovation</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Company</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="about.html" class="hover:text-yellow-300 transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Our Team</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-300 transition">Contact</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-300 transition">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Support</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:text-yellow-300 transition">FAQ</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Warranty</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Terms &amp; Conditions</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <!-- ONLY THIS SECTION HAS BEEN REPLACED -->
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Connect</div>
+                <div>
+                
+                <p>Tel: +65 8183 6772</p>
+                <p>Email: info@luminousengineering.com.sg</p>
+                <p>Address: 30 Roberts Lane, #02-01, Singapore 218309</p>
+                </div><br>
+                <div class="flex space-x-4 text-2xl">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/+6581836772" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                    <!-- Carousell -->
+                    <a href="https://www.carousell.sg/u/luminousengineeringlimited/" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Carousell">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 5.973a1.35 1.35 0 0 1-.855.855l-5.973 1.97a1.35 1.35 0 0 1-1.665-1.665l1.97-5.973a1.35 1.35 0 0 1 .855-.855l5.973-1.97a1.35 1.35 0 0 1 1.665 1.665z"/></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
+                    </a>
+                    <!-- Pinterest -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Pinterest">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.001 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                    </a>
+                    <!-- Tumblr -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Tumblr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.801V17.35c0 .949.245 1.849 1.475 1.849h3.018c.165 0 .294.134.294.298V24h-1.74z"/></svg>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- END OF REPLACED SECTION -->
+
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
+            <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2024 Luminous Engineering PTE Ltd. All rights reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="../static/js/home.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        if (mobileMenu) {
+                            mobileMenu.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns# ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <link rel="profile" href="https://gmpg.org/xfn/11 ">
+
+    <title>Electrical Services Singapore - Luminous Engineering</title>
+    <meta name="description" content="Professional electrical services in Singapore. Licensed electricians for repairs, installation, and maintenance. Safe, reliable, 24/7 emergency service available."/>
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+    <link rel="canonical" href="https://luminousengineering.com.sg/electrical-services/ " />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../resources/logo.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/swimmingpool.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        /* Premium pricing presentation */
+        #pricing {
+            position: relative;
+        }
+
+        #pricing::after {
+            content: '';
+            position: absolute;
+            inset: 2rem;
+            border-radius: 32px;
+            background: radial-gradient(circle at top, rgba(248, 213, 126, 0.15), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .pricing-shell {
+            position: relative;
+            background: rgba(12, 17, 40, 0.9);
+            border: 1px solid rgba(255, 215, 128, 0.25);
+            border-radius: 28px;
+            padding: 2.5rem 2rem 2rem;
+            box-shadow: 0 25px 60px rgba(8, 12, 30, 0.65);
+            backdrop-filter: blur(14px);
+            overflow: hidden;
+        }
+
+        .pricing-shell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 214, 129, 0.5), rgba(105, 186, 255, 0.35));
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, #ffd87e, #f0a500);
+            color: #0b1123;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 1.1rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(255, 216, 126, 0.35);
+            z-index: 2;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            color: #f7f7fb;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-table tbody tr:first-child td {
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #fbdca0;
+        }
+
+        .pricing-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background 0.3s ease, transform 0.3s ease;
+            vertical-align: top;
+        }
+
+        .pricing-table tr:not(:first-child):hover td {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(6px);
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table td strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .pricing-table td:nth-child(2) {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffd87e;
+        }
+
+        .pricing-note {
+            font-size: 0.9rem;
+            color: #9ca3c4;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-shell {
+                padding: 2rem 1.5rem;
+            }
+
+            .pricing-table td {
+                display: block;
+                width: 100%;
+                border-bottom: none;
+                padding: 0.75rem 0;
+            }
+
+            .pricing-table tr {
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 0.75rem 0;
+            }
+
+            .pricing-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* FAQ Accordion Styles */
+        details.wp-block-accordion {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        details.wp-block-accordion:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(232, 185, 35, 0.3);
+        }
+
+        details.wp-block-accordion summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #ffffff;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        details.wp-block-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.wp-block-accordion summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #e8b923;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        details.wp-block-accordion[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .wp-block-accordion__content {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        .wp-block-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .wp-block-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .wp-block-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e8b923;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="logo font-display">
+                    <img src="../resources/logo.png" alt="Luminous Engineering Logo">
+                    <span>Luminous Engineering</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8 desktop-nav">
+                    <a href="home.html" class="nav-link text-white hover:text-yellow-400">Home</a>
+                    <a href="home.html#services" class="nav-link text-white hover:text-yellow-400">Services</a>
+                    <a href="about.html" class="nav-link text-white hover:text-yellow-400">About</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-400">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <span class="hidden sm:block text-sm text-gray-300">24/7 Emergency</span>
+                    <button class="btn-primary px-6 py-2 rounded-full text-sm hidden sm:block">
+                        Get Quote
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="mobile-menu-button" id="mobileMenuButton">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="home.html" class="text-white">Home</a>
+            <a href="home.html#services" class="text-white">Services</a>
+            <a href="about.html" class="text-white">About</a>
+            <a href="contact.html" class="text-white">Contact</a>
+            <a href="#send-us-a-message" class="text-yellow-400 font-semibold">Get Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg">
+        <div class="background-slider">
+            <div class="background-slide" style="background-image: url('../resources/electrical-works.png');"></div>
+            <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920');"></div>
+            <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920');"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-content-inner">
+                <div class="hero-text-box">
+                    <div class="hero-text-content">
+                        <h1 class="hero-title font-display text-gradient">
+                            Professional Electrical<br>Services Singapore
+                        </h1>
+                        <p class="hero-description">
+                            Licensed and experienced electricians providing safe, reliable electrical solutions for homes and businesses. From installations to repairs, we ensure your property is powered safely and efficiently.
+                        </p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#send-us-a-message" class="btn-primary hero-btn">
+                            Get a FREE Quote
+                        </a>
+                        <a href="#pricing" class="btn-primary hero-btn">
+                            View Our Pricing
+                        </a>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main" class="site-main">
+        <div class="entry-content is-layout-constrained">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                
+                <!-- Introduction Section -->
+                <div class="mb-20 text-center max-w-5xl mx-auto">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-8 text-gradient">ELECTRICAL SERVICES</h2>
+                    <div class="space-y-4 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            Our licensed electricians at Luminous Engineering provide the highest quality electrical installation, repair, and maintenance services across Singapore.
+                        </p>
+                        <p>
+                            Our professional team is trained and certified to ensure that your electrical systems are handled with precision, safety, and compliance. To ensure that your project is finished properly and on time, we use quality materials and follow strict safety protocols. We provide services ranging from residential HDB flats, condominiums to private landed properties and commercial buildings in Singapore. With over 20 years of electrical service experience, you can rest assured that our licensed electricians will handle your electrical needs professionally, ensuring safety, reliability, and energy efficiency.
+                        </p>
+                        <p>
+                            We understand electrical safety is a top priority, so we make sure our electricians are licensed, experienced, pay attention to detail, and do the job right the first time. We combine this outstanding service at affordable prices, so you don't have to compromise on quality or safety.
+                        </p>
+                        <p>
+                            We strive to be the first choice for electrical services and contractors for our clients. Luminous Engineering is your most trusted partner with reliable electrical services at the most competitive rates in Singapore.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 1: Electrical Installation -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">1. Electrical Installation</h2>
+                        <p class="text-gray-300 mb-4">Professional installation of electrical systems, wiring, and fixtures for new constructions and renovations.</p>
+                        <p class="text-gray-300 mb-4">Our licensed electricians install lighting systems, power outlets, circuit breakers, and complete electrical distribution boards.</p>
+                        <p class="text-gray-300 mb-4">We handle load calculations, recommend energy-efficient layouts, and coordinate with ID contractors so every point is properly positioned before tiling or carpentry works begin.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>3D point-marking plans help owners visualise socket and lighting locations.</li>
+                            <li>Concealed trunking and EMT conduit used to keep interiors neat while remaining code-compliant.</li>
+                            <li>All hardware sourced from EMA-approved suppliers with documented warranties.</li>
+                        </ul>
+                        <p class="text-gray-300">Proper installation <strong>ensures safety</strong>, <strong>prevents electrical hazards</strong>, and <strong>meets Singapore's electrical codes</strong>.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Electrical Installation" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Service 2: Electrical Repair -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800" alt="Electrical Repair" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">2. Electrical Repair & Troubleshooting</h2>
+                        <p class="text-gray-300 mb-4">Fast and reliable repairs for electrical faults, tripped breakers, and power outages.</p>
+                        <p class="text-gray-300 mb-4">We run insulation resistance tests, breaker load checks, and thermal scans so we fix the root cause instead of just the symptoms.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Isolated circuits before repair to keep the rest of your property powered.</li>
+                            <li>Emergency parts stocked in our vans to replace switches, sockets, relays, or wiring immediately.</li>
+                            <li>Detailed service reports outline the issue, rectification steps, and preventive tips for owners.</li>
+                        </ul>
+                        <p class="text-gray-300">Our experienced electricians quickly diagnose and fix electrical problems, ensuring <strong>safe operation</strong>, <strong>restored power</strong>, and <strong>peace of mind</strong>.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Lighting Installation -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">3. Lighting Installation & Upgrade</h2>
+                        <p class="text-gray-300 mb-4">Transform your space with professional lighting solutions including LED upgrades and smart lighting systems.</p>
+                        <p class="text-gray-300 mb-4">We help homeowners select the right colour temperature, beam angle, and CRI so living rooms, workspaces, and landscape areas receive optimal illumination.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Smart lighting ecosystems integrated with Google Home, Alexa, and Apple HomeKit.</li>
+                            <li>Outdoor fixtures sealed to IP65/IP67 ratings for pool decks, balconies, and façades.</li>
+                            <li>Accent lighting plans for feature walls, cove ceilings, and display cabinetry.</li>
+                        </ul>
+                        <p class="text-gray-300">We install indoor and outdoor lighting that <strong>enhances ambiance</strong>, <strong>improves energy efficiency</strong>, and <strong>increases property value</strong>.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800" alt="Lighting Installation" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Service 4: Electrical Rewiring -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="order-2 md:order-1">
+                        <img src="../resources/electrical-works.png" alt="Rewiring" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">4. Complete Rewiring Services</h2>
+                        <p class="text-gray-300 mb-4">Upgrade old or faulty wiring to meet modern electrical demands and safety standards.</p>
+                        <p class="text-gray-300 mb-4">We check insulation breakdown, aluminium-to-copper joints, and ageing junction boxes before designing a phased rewiring plan.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>New circuits labelled clearly within the distribution board for easier maintenance.</li>
+                            <li>Surface or concealed routing selected based on the renovation stage and budget.</li>
+                            <li>Power quality tests confirm the rewired system meets current load requirements.</li>
+                        </ul>
+                        <p class="text-gray-300">Our rewiring services <strong>eliminate fire hazards</strong>, <strong>support modern appliances</strong>, and <strong>comply with regulations</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5: DB Box Installation -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="font-display text-4xl font-bold mb-6 text-gradient">5. Distribution Board (DB Box) Installation</h2>
+                        <p class="text-gray-300 mb-4">Professional installation and upgrade of electrical distribution boards for safe power distribution.</p>
+                        <p class="text-gray-300 mb-4">We assess existing load layouts, recommend RCBO/MCB combinations, and include surge protection where sensitive electronics are present.</p>
+                        <ul class="list-disc list-inside text-gray-300 mb-4 space-y-1">
+                            <li>Clean wiring management with ferrules and trunking for easy future servicing.</li>
+                            <li>Main switch upgrades sized to accommodate EV chargers, induction hobs, or large HVAC systems.</li>
+                            <li>Testing and commissioning reports issued in line with EMA and SCDF guidelines.</li>
+                        </ul>
+                        <p class="text-gray-300">We install modern DB boxes with proper circuit protection that <strong>prevents overloads</strong>, <strong>organizes circuits</strong>, and <strong>ensures compliance with safety standards</strong>.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800" alt="DB Box" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <section id="pricing" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient">Pricing</h2>
+                    <p class="text-xl text-gray-300 text-center mb-12">Our pricing is <strong>transparent</strong> and <strong>competitive</strong>, designed to offer you the <strong>best value</strong>.</p>
+                    
+                    <div class="overflow-x-auto mb-8">
+                        <div class="pricing-shell">
+                            <div class="pricing-badge">Most Booked</div>
+                            <table class="wp-block-table pricing-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Service Type</strong></td>
+                                        <td><strong>Base Rate (SGD)</strong></td>
+                                        <td><strong>Additional Unit / Notes</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Replace light bulb</td>
+                                        <td>From $86</td>
+                                        <td>$43 per extra bulb (same visit)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install / replace LED light</td>
+                                        <td>From $105</td>
+                                        <td>$70 per extra LED point</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install / replace downlight</td>
+                                        <td>From $105</td>
+                                        <td>$70 per additional downlight</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install ceiling light fitting</td>
+                                        <td>From $120</td>
+                                        <td>$90 per additional fixture</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install hanging / decorative light (existing point)</td>
+                                        <td>From $90</td>
+                                        <td>$60 per extra point</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install wall fan (existing point)</td>
+                                        <td>From $70</td>
+                                        <td>$40 per extra fan</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install single / double 13AMP power socket (non-conceal)</td>
+                                        <td>From $90</td>
+                                        <td>Includes labour & transport</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install lighting switch point (non-conceal)</td>
+                                        <td>From $90</td>
+                                        <td>Includes labour & transport</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Replace power socket</td>
+                                        <td>From $90</td>
+                                        <td>$50 per extra socket during same trip</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Replace light switch</td>
+                                        <td>From $90</td>
+                                        <td>$50 per extra switch during same trip</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Install dimmer switch point (non-conceal)</td>
+                                        <td>From $90</td>
+                                        <td>Owner supplies dimmer hardware</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Supply & install 15/20 AMP dedicated point (aircon / heater)</td>
+                                        <td>Enquire</td>
+                                        <td>Price depends on run length & concealment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="pricing-note">Benchmark rates compiled from 2024 Singapore electrical service providers (labour & transport included).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <div class="pricing-shell">
+                            <div class="pricing-badge">Rapid Support</div>
+                            <table class="wp-block-table pricing-table">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Service Add-On</strong></td>
+                                        <td><strong>Guide Price (SGD)</strong></td>
+                                        <td><strong>Details</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Electrical fault diagnosis / site assessment</td>
+                                        <td>$120</td>
+                                        <td>Waived if rectification is confirmed on-site</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergency dispatch (office hours)</td>
+                                        <td>$250</td>
+                                        <td>Technician onsite within ~2 hours</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergency dispatch (after hours)</td>
+                                        <td>$350</td>
+                                        <td>Rapid response within ~4 hours</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="pricing-note">Add-on services keep diagnostics fast and emergency teams on standby.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-16">
+                    <h3 class="font-display text-3xl lg:text-4xl font-bold mb-6 text-center text-gradient">How We Quote Electrical Work</h3>
+                    <div class="max-w-4xl mx-auto text-gray-300 space-y-4 leading-relaxed">
+                        <p>Singapore electrical contractors typically provide an upfront quote once the issue, location, and existing electrical points are confirmed. Market leaders include labour and transport in their published rates and only add a small inspection fee when the issue cannot be diagnosed remotely.</p>
+                        <ul class="wp-block-list">
+                            <li>Share photos or videos via WhatsApp so we can confirm if the published guide rate applies.</li>
+                            <li>Additional units installed during the same visit benefit from reduced add-on pricing.</li>
+                            <li>Dedicated appliance points (15A/20A) and concealed rewiring require a short site survey before we lock in a price.</li>
+                            <li>All workmanship follows EMA regulations with licensed electricians overseeing the final test.</li>
+                        </ul>
+                        <p>Need a tailored quote? Send us your floor plan or a list of fixtures and we will respond with a transparent proposal within one business day.</p>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="fa-qs" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-6 text-center text-gradient">FAQs</h2>
+                    <p class="text-xl text-gray-300 text-center mb-12">Frequently Asked Questions about Electrical Services in Singapore</p>
+                    
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        <details class="wp-block-accordion">
+                            <summary>Are your electricians licensed?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, all our electricians are fully licensed and registered with the Energy Market Authority (EMA) of Singapore. They are qualified to perform all types of electrical work safely and legally.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>What are signs that I need electrical repairs?</summary>
+                            <div class="wp-block-accordion__content">
+                                <ul class="wp-block-list">
+                                    <li>Frequently tripping circuit breakers</li>
+                                    <li>Flickering or dimming lights</li>
+                                    <li>Burning smell from outlets or switches</li>
+                                    <li>Warm or discolored outlets</li>
+                                    <li>Sparks when plugging in appliances</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Do you provide emergency electrical services?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, we offer 24/7 emergency electrical services. Our electricians can respond within 2-4 hours depending on the time of day. Call us immediately for electrical emergencies.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Do you provide warranty for electrical work?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Yes, we provide warranty coverage for all electrical work performed. The warranty period varies depending on the service type, typically ranging from 6 months to 2 years for labor and materials.</p>
+                            </div>
+                        </details>
+                        <details class="wp-block-accordion">
+                            <summary>Can you help with upgrading old electrical systems?</summary>
+                            <div class="wp-block-accordion__content">
+                                <p>Absolutely! We specialize in upgrading old electrical systems including rewiring, DB box upgrades, and modernizing electrical installations to meet current safety standards and support modern electrical loads.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Contact Form Section -->
+                <section id="send-us-a-message" class="py-20">
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-12 text-center text-gradient">Send Us a Message</h2>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="wpforms-container">
+                            <form id="wpforms-form-787" class="wpforms-validate wpforms-form" method="post" enctype="multipart/form-data">
+                                <div class="wpforms-field-container">
+                                    <div class="wpforms-field wpforms-field-name">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_6">First Name *</label>
+                                        <input type="text" id="wpforms-787-field_6" class="wpforms-field-large" name="wpforms[fields][6]" placeholder="First Name *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-name">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_11">Last Name *</label>
+                                        <input type="text" id="wpforms-787-field_11" class="wpforms-field-large" name="wpforms[fields][11]" placeholder="Last Name *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-email">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_1">Email *</label>
+                                        <input type="email" id="wpforms-787-field_1" class="wpforms-field-large" name="wpforms[fields][1]" placeholder="Email Address *" required>
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-text">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_4">Mobile No.</label>
+                                        <input type="text" id="wpforms-787-field_4" class="wpforms-field-large" name="wpforms[fields][4]" placeholder="Mobile No.">
+                                    </div>
+                                    <div class="wpforms-field wpforms-field-textarea">
+                                        <label class="wpforms-field-label" for="wpforms-787-field_2">Message *</label>
+                                        <textarea id="wpforms-787-field_2" class="wpforms-field-large" name="wpforms[fields][2]" placeholder="Message *" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="wpforms-submit-container">
+                                    <button type="submit" name="wpforms[submit]" class="wpforms-submit">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+
+<footer class="bg-gradient-to-b from-gray-900 to-black text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+                <div class="font-display text-3xl font-bold text-yellow-400 mb-3">Luminous Engineering</div>
+                <p class="text-gray-300 max-w-md">
+                    Singapore's premier home-renovation & handyman specialist.
+                </p>
+            </div>
+            <div class="md:text-right">
+                <div class="text-sm uppercase tracking-wider text-gray-400 mb-2">Stay Updated</div>
+                <form class="flex max-w-sm md:ml-auto">
+                    <input type="email" placeholder="your@email.com" required
+                           class="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-yellow-400">
+                    <button type="submit"
+                            class="px-5 py-2 bg-yellow-400 text-black font-semibold rounded-r-lg hover:bg-yellow-300 transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-sm">
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Services</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Premium Painting</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Electrical Works</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Bathroom Renovation</a></li>
+                    <li><a href="services.html" class="hover:text-yellow-300 transition">Kitchen Renovation</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Company</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="about.html" class="hover:text-yellow-300 transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Our Team</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-300 transition">Contact</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-300 transition">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Support</div>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#" class="hover:text-yellow-300 transition">FAQ</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Warranty</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Terms &amp; Conditions</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <!-- ONLY THIS SECTION HAS BEEN REPLACED -->
+            <div>
+                <div class="font-semibold text-yellow-400 mb-4">Connect</div>
+                <div>
+                
+                <p>Tel: +65 8183 6772</p>
+                <p>Email: info@luminousengineering.com.sg</p>
+                <p>Address: 30 Roberts Lane, #02-01, Singapore 218309</p>
+                </div><br>
+                <div class="flex space-x-4 text-2xl">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/+6581836772" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                    <!-- Carousell -->
+                    <a href="https://www.carousell.sg/u/luminousengineeringlimited/" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Carousell">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 5.973a1.35 1.35 0 0 1-.855.855l-5.973 1.97a1.35 1.35 0 0 1-1.665-1.665l1.97-5.973a1.35 1.35 0 0 1 .855-.855l5.973-1.97a1.35 1.35 0 0 1 1.665 1.665z"/></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
+                    </a>
+                    <!-- Pinterest -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Pinterest">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.001 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                    </a>
+                    <!-- Tumblr -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Tumblr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.801V17.35c0 .949.245 1.849 1.475 1.849h3.018c.165 0 .294.134.294.298V24h-1.74z"/></svg>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="#" target="_blank" class="text-gray-300 hover:text-yellow-300 transition" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- END OF REPLACED SECTION -->
+
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
+            <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2024 Luminous Engineering PTE Ltd. All rights reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/+6581836772" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="#25D366">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.6 0-66.7-9-95.5-26.1l-6.8-4-70.5 18.5 18.8-68.8-4.4-7.1c-18.6-30-28.4-64.6-28.4-100.1 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5c.1 101.8-82.7 184.5-184.5 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <script src="../static/js/home.js"></script>
+</body>
+</html>
