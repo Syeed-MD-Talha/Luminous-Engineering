@@ -145,8 +145,15 @@
 
         // Service Cards Click Handler
         document.querySelectorAll('.service-card').forEach(card => {
+            const hasInlineOnclick = card.hasAttribute('onclick');
+            const hasInternalLink = card.querySelector('a, button');
+            if (hasInlineOnclick || hasInternalLink) {
+                return;
+            }
+
             card.addEventListener('click', function() {
-                const serviceName = this.querySelector('h3').textContent;
+                const serviceNameEl = this.querySelector('h3');
+                const serviceName = serviceNameEl ? serviceNameEl.textContent.trim() : '';
                 setTimeout(() => {
                     window.location.href = `services.html?service=${encodeURIComponent(serviceName)}`;
                 }, 300);
