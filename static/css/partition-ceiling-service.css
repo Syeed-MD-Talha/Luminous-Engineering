@@ -1,4 +1,4 @@
-/* Complete Renovation Service Page Styles */
+/* Partition & Ceiling Service Page Styles */
 
 * {
     margin: 0;
@@ -26,6 +26,7 @@ body {
     box-shadow: 0 25px 60px rgba(8, 12, 30, 0.65);
     backdrop-filter: blur(14px);
     overflow: hidden;
+    margin-bottom: 2rem;
 }
 
 .pricing-shell::before {

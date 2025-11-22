@@ -1,4 +1,4 @@
-        // Mobile Menu Toggle
+// Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -26,22 +26,6 @@
                 mobileMenu.classList.remove('active');
             }
         });
-
-        // Mobile Services Dropdown
-        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
-        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
-        
-        if (mobileServicesToggle && mobileServicesDropdown) {
-            mobileServicesToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileServicesDropdown.classList.toggle('hidden');
-                mobileServicesDropdown.classList.toggle('flex');
-                const icon = mobileServicesToggle.querySelector('svg');
-                if (icon) {
-                    icon.classList.toggle('rotate-180');
-                }
-            });
-        }
 
         // Floating Particles Animation
         function setupParticles() {
@@ -175,4 +159,3 @@
                 }, 300);
             });
         });
-        
